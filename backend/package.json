@@ -2,20 +2,26 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "./dist/index.js",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "private": true,
+  "scripts": {
+    "build": "tsc -p .",
+    "start": "yarn build && concurrently \"yarn build -w\" \"nodemon .\""
+  },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/express-fileupload": "^1.5.1",
     "@types/jsonwebtoken": "^9.0.7",
+    "concurrently": "^9.1.0",
     "nodemon": "^3.1.7",
     "typescript": "^5.6.3"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "express-fileupload": "^1.5.1",
     "helmet": "^8.0.0",

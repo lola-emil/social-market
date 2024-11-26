@@ -4,6 +4,6 @@
   "main": "index.js",
   "repository": "https://github.com/lola-emil/virutal-market.git",
   "author": "Rens Saladaga <staleexam19@gmail.com>",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "private": true
 }
