@@ -1,7 +1,7 @@
+import { db } from "../config/database";
 
-
-
-type UserProfile = {
+const TBL_NAME = "user_profile";
+export type UserProfile = {
     id: number,
     firstname: string,
     middlename?: string,
@@ -14,3 +14,18 @@ type UserProfile = {
     created_at: Date,
     updated_at: Date,
 };
+
+export async function insert(data: Partial<UserProfile>) {
+    const result = await db<UserProfile>(TBL_NAME).insert(data);
+    return result;
+}
+
+export async function find(query: Partial<UserProfile>) {
+    const result = await db<UserProfile>(TBL_NAME).select().where(query);
+    return result;
+}
+
+export async function updateById(id: number, data: Partial<UserProfile>) {
+    const result = await db<UserProfile>(TBL_NAME).update(data).where("id", id);
+    return result;
+}
